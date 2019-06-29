@@ -1,13 +1,16 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<head>
+    <title></title>
+</head>
+
+{% block contents %}
 <body class="vsc-initialized">
-    <div>
-        <strong>Menu:</strong>
-        <ul>
-        <li><a href="/accounts/login/">Sign In</a></li>
-        <li><a href="/accounts/signup/">Sign Up</a></li>
-        </ul>
-    </div>
     
-    <h1>project templates / account / login.html 페이지 입니다.</h1>
+    
     <h1>Sign In</h1>
     
     <p>Please sign in with one
@@ -35,3 +38,4 @@
     </form>
     
 </body>
+{% endblock %}

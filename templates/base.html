@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type='text/css' href="{% static 'solitude/css/style.css' %}">
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li><a href="/accounts/login/">Sign In</a></li>
+            <li><a href="/accounts/signup/">Sign Up</a></li>
+        </ul>
+    </div>
+
+    {% block contents %}
+    {% endblock %}
+</body>
