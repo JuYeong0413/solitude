@@ -94,19 +94,22 @@ body {
 /* main.html */
 
 .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: "img-left img-left img-left college" "img-left img-left img-left college" "img-left img-left img-left college";
-  }
+    width: 100vw;
+    display: flex;
+}
   
   .img-left { 
-      grid-area: img-left;
+      width: 70vw;
+      height: 100vw;
       overflow: hidden;
 }
   
-  .college { grid-area: college; }
+  .college {
+      width: 300px;
+      background-color: black;
+  }
 
   .card{
-      width: 900px;
+      position: absolute;
   }
+
