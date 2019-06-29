@@ -15,20 +15,23 @@
     <br>
     <div class="body_title">회원가입을 해주세요</div>
     <br>
-    <div class="body_content">이미 '고독한독강러'의 회원이라면 로그인 페이지(<a href="/accounts/login/">바로가기</a>)로 이동하시면 됩니다 :)</p>
+    <div class="body_content">이미 '고독한독강러'의 회원이라면 로그인 페이지(<a href="/accounts/login/">바로가기</a>)로 이동하시면 됩니다 :)</div>
         <br>
         <br>
-    
+  
+
+    <div class="form_bundle">
     <form class="signup" id="signup_form" method="post" action="/accounts/signup/">
         <input type="hidden" name="csrfmiddlewaretoken" value="aMY9mZlpPUBKOmxMrATiqdmsdlALERNCz2UlXth4Ql2OVQWDGRPDW9TcJt5tI9lL">
         <p><label for="id_username">아이디:</label> <input type="text" name="username" minlength="1" required="" autofocus="autofocus" maxlength="150" id="id_username" placeholder="아이디"></p>
         <p><label for="id_email">이메일 (선택사항):</label> <input type="email" name="email" id="id_email" placeholder="이메일 주소"></p>
         <p><label for="id_password1">비밀번호:</label> <input type="password" name="password1" required="" id="id_password1" placeholder="비밀번호가 어려워야 가입됩니다ㅠㅠ"></p>
         <p><label for="id_password2">비밀번호 (확인):</label> <input type="password" name="password2" required="" id="id_password2" placeholder="위의 비밀번호와 동일하게 다시 한 번 입력해주세요"></p>
-        
-        <button type="submit">회원가입하기 »</button>
+
+        <button class="primaryAction" type="submit">회원가입하기 »</button>
         {% csrf_token %}
     </form>
+    </div>  
     
 </body>
 {% endblock %}

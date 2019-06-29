@@ -6,4 +6,4 @@ from .models import *
 def main(request, major_id):
     classes = Class.objects.filter(major_id=major_id)
 
-    return render(request, 'main.html', {'classes': classes})
+    return render(request, 'classes/main.html', {'classes': classes})

@@ -45,6 +45,9 @@ body {
 }
 
 /* signup.html */
+.form_bundle label{
+    text-align: right;
+}
 #id_username {
     width: 410px;
     height: 40px;
@@ -93,7 +96,6 @@ body {
     margin-top: 300px;
 }
 
-
 /*navbar*/
 .navbar-brand{
     font-family: 'yg-jalnan';
@@ -107,3 +109,31 @@ body {
     background-color: #FF9E1B;
 }
 
+
+/*text logo*/
+.logo{
+    font-family: 'yg-jalnan';
+}
+
+/* 학과 목록에서 쓸 버튼 */
+.border5 {
+    border-radius: 3px;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+
+
+
+
+/* main.html */
+.container{
+    display: flex;
+    background-color: blue;
+}
+
+.college{
+    width: 200px;
+    background-color: black;
+}
