@@ -52,7 +52,7 @@
             <td>{{ post.id }}</td>
             <td>{{ post.category }}</td>
             <td><a href="{% url 'classes:show' post.pk %}">{{ post.title }}</a></td>
-            <td>{{ post.writer }}</td>
+            <td>{{ post.user }}</td>
             <td>{{ post.created_at }}</td>
             <td>{{ post.view_count }}</td>
         </tr>
