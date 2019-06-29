@@ -1,13 +1,25 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
+    <style>
+        .custom-btn{
+            font-family: 'locus_sangsang';
+            background-color: #F9423A;
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            border-width: 0px;
+            box-shadow: none;
+            text-align: center;
+            align-content: center;
+        }
+    </style>
+
     {% for class in classes %}
         <div>
             <button type="button" class="btn"></button>
-            <a href="#" class="btn btn-warning">{{ class.title }}</a>
+            <a href="#" class="custom-btn">{{ class.title }}</a>
         </div>
-        <br>
-        <br>
     {% endfor %}
     
 {% endblock %}

@@ -96,20 +96,22 @@ body {
 .grid-container {
     width: 100vw;
     display: flex;
+    justify-content: space-between;
 }
   
   .img-left { 
       width: 70vw;
-      height: 100vw;
       overflow: hidden;
 }
   
   .college {
       width: 300px;
+      height: 600px;
       background-color: black;
   }
 
   .card{
       position: absolute;
+      width: 70vw;
   }
 
