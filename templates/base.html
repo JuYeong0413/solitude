@@ -16,7 +16,7 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="{% url 'main' %}">홈<span class="sr-only">(current)</span></a>
                 {% if user.is_authenticated %}
-                    <!-- 여기다가 로그인한 사용자에게 보여질 nav item 넣어주시면 됩니다. -->
+                    <a class="nav-item nav-link" href="/accounts/logout/">로그아웃</a>
                 {% else %}
                     <a class="nav-item nav-link" href="/accounts/login/">로그인</a>
                     <a class="nav-item nav-link" href="/accounts/signup/">회원가입</a>

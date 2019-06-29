@@ -44,7 +44,33 @@ body {
     border-width: 0px;
 }
 
-/*로그인, 로그아웃 버튼*/
+/* signup.html */
+#id_username {
+    width: 410px;
+    height: 40px;
+    border-radius: 5px;
+    border-width: 0px;
+}
+#id_email {
+    width: 410px;
+    height: 40px;
+    border-radius: 5px;
+    border-width: 0px;
+}
+#id_password1 {
+    width: 410px;
+    height: 40px;
+    border-radius: 5px;
+    border-width: 0px;
+}
+#id_password2 {
+    width: 410px;
+    height: 40px;
+    border-radius: 5px;
+    border-width: 0px;
+}
+
+/*로그인, 로그아웃, 회원가입 버튼 양식*/
 .primaryAction {
     font-family: 'locus_sangsang';
     background-color: #F9423A;
@@ -53,6 +79,18 @@ body {
     border-radius: 5px;
     border-width: 0px;
     box-shadow: none;
+}
+/* 로그아웃 버튼 */
+.logout_btn {
+    text-align: center;
+}
+
+/*카피라이트 footer*/
+.copyright{
+    text-align: center;
+    font-family: 'NanumSquareRound';
+    font-size: 10px;
+    margin-top: 300px;
 }
 
 

@@ -1,7 +1,9 @@
-from django.shortcuts import render, get_object_or_404 
+from django.shortcuts import get_object_or_404, render
 from .models import Major
-from classes.models import Class
 # Create your views here.
 
-def major(request, major_name):
-    return render('major.html')
+# 학과 전체 보여주는 페이지
+def main(request):
+    majors = Major.objects.all()
+
+    return render(request, 'main.html', {'majors': majors})
