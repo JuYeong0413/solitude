@@ -1,25 +1,31 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-    <style>
-        .custom-btn{
-            font-family: 'locus_sangsang';
-            background-color: #F9423A;
-            width: 200px;
-            height: 30px;
-            border-radius: 5px;
-            border-width: 0px;
-            box-shadow: none;
-            text-align: center;
-            align-content: center;
-        }
-    </style>
+
+<!--
+<div class="loader-moving">
+    <span class="left"></span>
+    <span class="right"></span>
+</div>
+-->
 
     {% for class in classes %}
         <div>
             <button type="button" class="btn"></button>
-            <a href="#" class="custom-btn">{{ class.title }}</a>
+            <a href="#" class="btn btn-danger">{{ class.title }}</a>
         </div>
+        <br>
+        <br>
+
     {% endfor %}
+
+        <div>
+            <button type="button" class="btn"></button>
+            <a href="{% url 'classes:new' %}" class="btn btn-danger">수업 추가</a>
+        </div>
+        <br>
+        <br>
     
+
+
 {% endblock %}

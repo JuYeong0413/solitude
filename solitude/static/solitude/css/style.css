@@ -31,6 +31,7 @@ body {
     margin: 0 auto;
     width: 50%;
 }
+
 .form_bundle label{
     display: inline-block;
     text-align: right;
@@ -78,6 +79,10 @@ body {
     background-color: #FF9E1B;
 }
 
+.navbar{
+    margin-bottom: 0px !important;
+}
+
 
 /*text logo*/
 .logo{
@@ -91,27 +96,97 @@ body {
 
 
 
-/* main.html */
-
+/* main.html in templates */
 .grid-container {
-    width: 100vw;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "left dropdown";
+  }
+  
+  .left { 
+    grid-area: left; 
+    overflow: hidden;
 }
   
-  .img-left { 
-      width: 70vw;
-      overflow: hidden;
+  .dropdown { 
+    grid-area: dropdown;
+    background-color: #F9423A;
 }
-  
-  .college {
-      width: 300px;
-      height: 600px;
-      background-color: black;
-  }
 
-  .card{
-      position: absolute;
-      width: 70vw;
-  }
+  .card { 
+    width: 1300px;
+    border: 0px !important;
+}
 
+
+/* main.html in majors*/
+.btn .btn-danger {
+    font-family: 'locus_sangsang';
+}
+
+  /*
+  majors/main.html
+  classes/main.html
+   */
+  /* keyframes 정의 */
+  /*
+@keyframes circleLeft {
+    0%{
+      transform: translateX(-20px);
+    }
+    50%{
+      transform: translateX(20px);
+    }
+    100%{
+      transform: translateX(-20px);
+    }
+  }
+  @keyframes circleRight {
+    0%{
+      transform: translateX(20px);
+    }
+    50%{
+      transform: translateX(-20px);
+    }
+    100%{
+      transform: translateX(20px);
+    }
+  }
+  .loader-moving{
+    position: fixed;
+    width:100%;
+    height: 100%;
+    left:0;
+    top:0;
+    background: #fff;
+    z-index:100;
+    transition:all 1s;
+  }
+  .loader-moving > span{
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:20px;
+    height:20px;
+    border-radius: 100%;
+    margin:-10px 0 0;
+  }
+  .loader-moving > span.left{
+    background: olive;
+    transform: translateX(-30px);
+    animation:circleLeft 1s cubic-bezier(.645,.045,.355,1) infinite;
+  }
+  .loader-moving > span.right{
+    background: crimson;
+    transform: translateX(30px);
+    animation:circleRight 1s cubic-bezier(.645,.045,.355,1) infinite;
+  }
+  .loader-moving.end{
+    opacity: 0;
+    z-index:-1;
+  }
+  .recent_button{
+    background: linear-gradient(to right,  rgba(250, 193, 4, 0.3), #ffd4d4);
+  }
+*/

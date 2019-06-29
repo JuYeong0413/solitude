@@ -90,3 +90,11 @@ def like_toggle(request, id):
 def show(request):
     posts = Post.objects.all()
     return render(request, 'posts/show.html', {'posts': posts})
+
+
+# 게시글 검색
+def search(request):
+    if request.method == "POST":
+        search = request.POST.get('search')
+        posts = Post.objects.filter(title__contains=search)
+    return render(request, 'posts/search.html', {'posts': posts})
