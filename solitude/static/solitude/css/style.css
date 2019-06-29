@@ -11,7 +11,7 @@
 */
 
 body {
-    background-color: rgb(239, 219, 178);  
+    background-color: rgb(239, 219, 178) !important;  
 }
 
 .body_title {
@@ -26,29 +26,36 @@ body {
     text-align: center;
 }
 
+/* login.html */
 .login {
     font-family: 'NanumSquareRound';
     text-align: center;
 }
-
 #id_login {
-    width: 400px;
+    width: 410px;
     height: 40px;
     border-radius: 5px;
 }
-
 #id_password {
     width: 400px;
     height: 40px;
     border-radius: 5px;
 }
+.primaryAction {
+    
+}
 
 
+/*navbar*/
 .navbar-brand{
     font-family: 'yg-jalnan';
 }
 
 .nav-item{
-    font-family: 'yg-jalnan';
+    font-family: 'NanumSquareRound';
+}
+
+.navbar navbar-expand-lg navbar-light bg-light{
+    background-color: black;
 }
 
