@@ -9,24 +9,30 @@
 </div>
 -->
 
-    {% for class in classes %}
-
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ class.title }}</h5>
-                <p class="card-text">ajfiedfksznksghv;hrszfdkkhnjkslebvkcnkds게시판으로 이어집니다.</p>
-                <a href="#" class="btn btn-primary">Go!</a>
+    
+    <div class='container'>
+        <div class='row'>
+            {% for class in classes %}
+            <div class="col-sm-12 col-md-4">
+                <div class="card">
+                    <img src="https://www.beautycolorcode.com/f9423a-320x320-color.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ class.title }}</h5>
+                        <p class="card-text">게시판으로 이어집니다.</p>
+                        <a href="{% url 'classes:main' class.pk %}" class="btn btn-warning">Go!</a>
+                    </div>
+                </div>
             </div>
+            {% endfor %}
         </div>
-        <br>
-        <br>
+    </div>
+    
 
-    {% endfor %}
-
-        <div>
-            <button type="button" class="btn"></button>
-            <a href="{% url 'classes:new' %}" class="btn btn-danger">수업 추가</a>
+        <div class='btn-container'>
+            <form action="{% url 'classes:new_class' %}" method="POST">
+                <input type="hidden" value="{{ major_id }}" name="major_id">
+                <input type="submit" class="btn btn-warning" value="수업 추가">
+            </form>
         </div>
         <br>
         <br>

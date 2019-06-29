@@ -103,27 +103,65 @@ body {
     grid-template-rows: 1fr;
     grid-template-areas: "left dropdown";
   }
-  
-  .left { 
+.left { 
     grid-area: left; 
     overflow: hidden;
 }
-  
-  .dropdown { 
+.dropdown { 
     grid-area: dropdown;
     background-color: #F9423A;
 }
-
-  .card { 
+.dropdown > .btn {
+    font-family: 'locus_sangsang';
+    background-color: #EFDBB2;
+    border-width: 0;
+    width: 300px;
+    height: 50px;
+    color: black;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10px; 
+    display: block;
+}
+.dropdown > .dropdown-menu {
+    font-family: 'NanumSquareRound';
+    border-width: 0;
+    width: 300px;
+}
+.main_likelion { 
     width: 1300px;
     border: 0px !important;
 }
 
 
 /* main.html in majors*/
-.btn .btn-danger {
+.card-body > h5 { 
     font-family: 'locus_sangsang';
 }
+.card-body > p {
+    font-family: 'NanumSquareRound';
+}
+
+.card{
+    margin-top: 30px;
+}
+
+.btn-container{
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
   /*
   majors/main.html

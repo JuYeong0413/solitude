@@ -3,20 +3,38 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="content-name-htj">새로운 수업 게시판 만들기</h1>
+    <h1 class="content-name-htj">글 작성하기</h1>
     <form class="form-horizontal" action="#" method="POST">
             {% csrf_token %} <br>
         </br>
         <div class="form-group">
-            <label for="input1" class="col-sm-1 control-label">수업명</label>
+            <label class="col-sm-1 control-label">카테고리</label>
+            <div class="col-xs-2">
+                <select class="form-control" name="category">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input1" class="col-sm-1 control-label">글제목</label>
             <div class="col-xs-3">
                 <input type="name" class="form-control" id="input1" placeholder="title" name="title" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input2" class="col-sm-1 control-label">내용</label>
+            <div class="col-xs-5">
+                <textarea class="form-control" rows="6" name="content" placeholder="content" required></textarea>
             </div>
         </div>
         
         <div class="form-group">
             <div class="col-sm-offset-1 col-sm-1">
-                <button type="submit" class="btn btn-outline-secondary btntj">게시판 만들기</button>
+                <button type="submit" class="btn btn-outline-secondary btntj">Submit</button>
             </div>
         </div>
     </form>

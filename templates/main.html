@@ -6,25 +6,23 @@
 <head>
     <title>메인</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 {% block content %}
 <body class="body_main">
     <div class="grid-container">
         <div class="left">
-            <img src="https://t1.daumcdn.net/cfile/tistory/99ECF74B5B35CC111A" class="card" alt="likelion_hackerton">
+            <img src="https://t1.daumcdn.net/cfile/tistory/99ECF74B5B35CC111A" class="main_likelion" alt="likelion_hackerton">
         </div>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
+                상경대
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                {% for major in majors %}
+                    <a class="dropdown-item" href="{% url 'majors:main' major.pk %}"></a>
+                {% endfor %}
             </div>
         </div>
     </div>

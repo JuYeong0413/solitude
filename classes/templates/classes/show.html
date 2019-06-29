@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+   <h1>{{ post.title }}</h1>
+    <table class="table table-striped table-htj">
+        <tbody>
+            <tr>
+                <th>작 성 자 : </th>
+                <td>{{ post.user }}</td>
+                 <th>말 머 리 : </th>
+                <td>{{ post.category }}</td>
+            </tr>
+            
+            <tr>
+                <div class="col-12">
+                <th>글  내  용 : </th>
+                <td colspan="12" style="text-align:left">{{ post.content|linebreaks }}</td>    
+                </div>
+            </tr>   
+        </tbody>
+</table>
+<div>
+    {% if user == post.user %}
+    <div>
+        <a class="readbutton-gtj" href="{% url 'meetings:verification' %}?action=edit&id={{ meeting.pk }}">수정</a>
+        <a class="readbutton-gtj" href="{% url 'meetings:verification' %}?action=delete&id={{ meeting.pk }}">삭제</a>
+    </div> 
+    {% endif %}
+</div>
+</div>
+
+
+{% endblock %}
