@@ -5,20 +5,26 @@ from posts.models import *
 # Create your views here.
 # 수업을 누르면 게시판 띄워주기
 def main(request, id):
-    posts = Post.objects.filter(classname_id=id)
-    class_name = Class.objects.get(pk=id)
+    user = request.user
+    if user.is_anonymous:
+        return render(request, 'account/login.html')
+    else:
+        posts = Post.objects.filter(classname_id=id)
+        class_name = Class.objects.get(pk=id)
 
-    return render(request, 'classes/main.html', {'posts': posts, 'class_name': class_name})
+        return render(request, 'classes/main.html', {'posts': posts, 'class_name': class_name})
 
 # 수업 게시판 개설 요청 페이지
 def new_class(request):
-    return render(request, 'classes/new_class.html')
+    if request.method == "POST":
+        major_id = request.POST.get('major_id')
+    return render(request, 'classes/new_class.html', {'major_id': major_id})
 
 def create_class(request):
     if request.method == "POST":
         title = request.POST.get('title')
         major_id = request.POST.get('major_id')
-        major = Major.objects.get(pk=major__id)
+        major = Major.objects.get(pk=major_id)
         
         new_class = Class(title=title, major=major)
         new_class.save()
@@ -110,8 +116,12 @@ def like_toggle(request, id):
 
 # 게시글 목록보기
 def list(request):
-    posts = Post.objects.all()
-    return render(request, 'classes/list.html', {'posts': posts})
+    user = request.user
+    if user.is_anonymous:
+        return render(request, 'account/login.html')
+    else:
+        posts = Post.objects.all()
+        return render(request, 'classes/list.html', {'posts': posts})
 
 
 # 게시글 검색

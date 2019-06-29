@@ -111,16 +111,23 @@ body {
     grid-area: dropdown;
     background-color: #F9423A;
 }
+.dropdown > #dropdown_zero {
+  font-family: 'NanumSquareRound';
+  color: white;
+  margin: 0 auto;
+  margin-top: 10px;
+}
 .dropdown > .btn {
     font-family: 'locus_sangsang';
+    font-size: 24px;
     background-color: #EFDBB2;
     border-width: 0;
     width: 300px;
-    height: 50px;
+    height: 70px;
     color: black;
     text-align: center;
     margin: 0 auto;
-    margin-top: 10px; 
+    margin-top: 20px; 
     display: block;
 }
 .dropdown > .dropdown-menu {
@@ -131,6 +138,10 @@ body {
 .main_likelion { 
     width: 1300px;
     border: 0px !important;
+}
+
+.main-upper{
+  height
 }
 
 
@@ -149,6 +160,16 @@ body {
 .btn-container{
     text-align: center;
     margin-top: 50px;
+}
+
+/* main.html in classes */
+.classtitle{
+  margin-top: 30px;
+}
+
+/* new.html in classes */
+.content-name-htj{
+  margin-top: 30px;
 }
 
 

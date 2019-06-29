@@ -2,6 +2,7 @@
 {% load staticfiles %}
 {% block content %}
 
+
 <!--
 <div class="loader-moving">
     <span class="left"></span>
@@ -28,15 +29,18 @@
     </div>
     
 
+        {% if user.is_authenticated %}
         <div class='btn-container'>
             <form action="{% url 'classes:new_class' %}" method="POST">
+                {% csrf_token %}
                 <input type="hidden" value="{{ major_id }}" name="major_id">
                 <input type="submit" class="btn btn-warning" value="수업 추가">
             </form>
         </div>
+        {% endif %}
         <br>
         <br>
     
-
+        <button type="button" onclick="topFunction()" class="scrollBtn" id="myBtn">Top</button>
 
 {% endblock %}

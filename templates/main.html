@@ -10,21 +10,93 @@
 </head>
 
 {% block content %}
+<div class='main-upper' style="font-family: 'yg-jalnan';">고독한 독강러</div>
 <body class="body_main">
     <div class="grid-container">
         <div class="left">
             <img src="https://t1.daumcdn.net/cfile/tistory/99ECF74B5B35CC111A" class="main_likelion" alt="likelion_hackerton">
         </div>
-        <div class="dropdown">
+        <div class="dropdown" id="dropdown_zero">
+            독강하는 과목의 전공을 아래 단대 메뉴에서 선택하세요.
+        </div>
+        <div class="dropdown" id="dropdown_one">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 상경대
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {% for major in majors %}
-                    <a class="dropdown-item" href="{% url 'majors:main' major.pk %}"></a>
-                {% endfor %}
+                <a class="dropdown-item" href="{% url 'majors:main' 5 %}">경영학과</a>
+                <a class="dropdown-item" href="{% url 'majors:main' 1 %}">경제학과</a>
+        </div>
+        <div class="dropdown" id="dropdown_two">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                사회대
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">정치외교학과</a>
+                <a class="dropdown-item" href="{% url 'majors:main' 7 %}">아동가족학과</a>
+                <a class="dropdown-item" href="#">심리학과</a>
+                <a class="dropdown-item" href="#">신문방송학과</a>
             </div>
         </div>
+        <div class="dropdown" id="dropdown_three">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                공 대
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{% url 'majors:main' 3 %}">컴퓨터공학과</a>
+                <a class="dropdown-item" href="#">건축학과</a>
+                <a class="dropdown-item" href="#">전자전기학과</a>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdown_four">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                사범대
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{% url 'majors:main' 2 %}">교육학과</a>
+                <a class="dropdown-item" href="#">국어교육학과</a>
+                <a class="dropdown-item" href="#">수학교육학과</a>
+                <a class="dropdown-item" href="#">과학교육학과</a>
+                <a class="dropdown-item" href="#">사회과교육학과</a>
+                <a class="dropdown-item" href="#">과학교육학과</a>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdown_five">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                자연대
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{% url 'majors:main' 4 %}">통계학과</a>
+                <a class="dropdown-item" href="#">물리학과</a>
+                <a class="dropdown-item" href="#">수학과</a>
+                <a class="dropdown-item" href="#">생물학과</a>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdown_five">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                인문대
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{% url 'majors:main' 6 %}">영어영문학과</a>
+                <a class="dropdown-item" href="#">중어중문학과</a>
+                <a class="dropdown-item" href="#">국어국문학과</a>
+                <a class="dropdown-item" href="#">독어독문학과</a>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdown_six">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                조형예술대
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">서양화과</a>
+                <a class="dropdown-item" href="#">동양화과</a>
+                <a class="dropdown-item" href="#">시각디자인학과</a>
+                <a class="dropdown-item" href="#">섬유예술학과</a>
+                <a class="dropdown-item" href="#">도예과</a>
+            </div>
+        </div>
+                    
+        
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

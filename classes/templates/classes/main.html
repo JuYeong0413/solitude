@@ -2,15 +2,15 @@
     
 {% block content %}
 <div class="container">
-        <h1 class="col-12" style="font-family: 'NanumSquareRound';">{{ class_name.title }}</h1>
+        <h1 class="classtitle col-12" style="font-family: 'NanumSquareRound';">{{ class_name.title }}</h1>
     <br>
     <div class="row">
         <!--테이블 위 버튼셋-->
         <form action="#">
             <div class="input-group col-12">     
-                <input type="text" class="form-control" placeholder="검색어" name="search">
+                <input type="text" class="form-control" placeholder="검색어" name="search" style="font-family: 'NanumSquareRound';">
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-outline-secondary">
+                    <button type="submit" class="btn btn-outline-secondary" style="font-family: 'NanumSquareRound';">
                         검색
                     </button>
                 </div>
@@ -20,19 +20,22 @@
 
     <br>
     
-#여기에 교재랑 스터디 모집 고정 글 
-    <table class="table table-bordered">
+    <div class="alert alert-dark">교재 제본 or 스터디 모집하실 분은 다음 폼을 작성해주시길 바랍니다. <a href="https://forms.gle/Yy6Y2GbMtALKD98z7">https://forms.gle/Yy6Y2GbMtALKD98z7</a><br>
+    운영진이 폼을 확인 후 신청자 모집 게시글을 공지사항에 업로드하겠습니다.</span>
+    </div>
 
+            
+        
     
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th width="8%">글번호</th>
-                <th width="12%">카테고리</th>
-                <th width="35%">제목</th>
-                <th width="12%">작성자</th>
-                <th width="20%">게시일</th>
-                <th width="12%">조회수</th>
+                <th width="8%" style="font-family: 'NanumSquareRound';">글번호</th>
+                <th width="12%" style="font-family: 'NanumSquareRound';">카테고리</th>
+                <th width="35%" style="font-family: 'NanumSquareRound';">제목</th>
+                <th width="12%" style="font-family: 'NanumSquareRound';">작성자</th>
+                <th width="20%" style="font-family: 'NanumSquareRound';">게시일</th>
+                <th width="12%" style="font-family: 'NanumSquareRound';">조회수</th>
             </tr>
         </thead>
         <tbody>
