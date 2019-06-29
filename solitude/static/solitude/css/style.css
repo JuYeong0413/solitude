@@ -26,7 +26,7 @@ body {
     text-align: center;
 }
 
-/* login.html */
+/* login.html
 .login {
     font-family: 'NanumSquareRound';
     text-align: center;
@@ -43,11 +43,18 @@ body {
     border-radius: 5px;
     border-width: 0px;
 }
+ */
 
 /* signup.html */
 .form_bundle label{
+    display: inline-block;
     text-align: right;
+    width: 410px;
+    height: 40px;
+    border-radius: 5px;
+    border-width: 0px;
 }
+/*
 #id_username {
     width: 410px;
     height: 40px;
@@ -72,6 +79,7 @@ body {
     border-radius: 5px;
     border-width: 0px;
 }
+*/
 
 /*로그인, 로그아웃, 회원가입 버튼 양식*/
 .primaryAction {

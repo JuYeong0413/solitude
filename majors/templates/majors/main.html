@@ -3,6 +3,8 @@
 
 {% block content %}
     {% for class in classes %}
-        <a href="#" class="btn border5 border55">{{ class.title }}</a>
+    <div>
+        <button class="btn striped-shadow dark"><a href="#" class="btn border5 border55">{{ class.title }}</a>
+    </div>
     {% endfor %}
 {% endblock %}
