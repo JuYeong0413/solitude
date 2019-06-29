@@ -82,9 +82,10 @@ def update(request, id):
 
 # 게시글 삭제
 def delete(request, id):
+    class_id = request.POST.get('class_id')
     post = Post.objects.get(pk=id)
     post.delete()
-    return redirect('classes:main')
+    return redirect('classes:delete_success')
 
 
 # 댓글 작성
@@ -135,4 +136,11 @@ def show(request, id):
     default_view_count = post.view_count
     post.view_count = default_view_count + 1
     post.save()
-    return render(request, 'classes/show.html', {'post': post})
+
+    class_id = request.GET.get('class_id')
+
+    return render(request, 'classes/show.html', {'post': post, 'class_id': class_id})
+
+
+def delete_success(request):
+    return render(request, 'classes/delete_success.html')

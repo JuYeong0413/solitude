@@ -3,39 +3,39 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="content-name-htj">글 작성하기</h1>
+    <h1 class="content-name-htj" style="font-family: 'locus_sangsang';">글 작성하기</h1>
     <form class="form-horizontal" action="{% url 'classes:create' %}" method="POST">
             {% csrf_token %} <br>
         </br>
         <div class="form-group">
-            <label class="col-sm-1 control-label">카테고리</label>
+            <label class="col-sm-1 control-label" style="font-family: 'NanumSquareRound';">카테고리</label>
             <div class="col-xs-2">
                 <select class="form-control" name="category">
-                    <option value="시험정보공유">시험정보공유</option>
-                    <option vale="과제공지">과제공지</option>
-                    <option value="질문">질문</option>
-                    <option value="잡담">잡담</option>
+                    <option value="시험정보공유" style="font-family: 'NanumSquareRound';">시험정보공유</option>
+                    <option vale="과제공지" style="font-family: 'NanumSquareRound';">과제공지</option>
+                    <option value="질문" style="font-family: 'NanumSquareRound';">질문</option>
+                    <option value="잡담" style="font-family: 'NanumSquareRound';">잡담</option>
                 </select>
                 </label>
             </div>
         </div>
         <div class="form-group">
-            <label for="input1" class="col-sm-1 control-label">글제목</label>
+            <label for="input1" class="col-sm-1 control-label" style="font-family: 'NanumSquareRound';">글제목</label>
             <div class="col-xs-3">
-                <input type="name" class="form-control" id="input1" placeholder="title" name="title" required>
+                <input type="name" class="form-control" id="input1" placeholder="title"  style="font-family: 'NanumSquareRound';" name="title" required>
             </div>
         </div>
         <div class="form-group">
-            <label for="input2" class="col-sm-1 control-label">내용</label>
+            <label for="input2" class="col-sm-1 control-label" style="font-family: 'NanumSquareRound';">내용</label>
             <div class="col-xs-5">
-                <textarea class="form-control" rows="6" name="content" placeholder="content" required></textarea>
+                <textarea class="form-control" rows="6" name="content" style="font-family: 'NanumSquareRound';" placeholder="content" required></textarea>
             </div>
         </div>
         
         <div class="form-group">
             <div>
                 <input type="hidden" value="{{ class_id }}" name="class_id">
-                <button type="submit" class="btn btn-outline-secondary">작성하기</button>
+                <button type="submit" style="font-family: 'NanumSquareRound';" class="btn btn-outline-secondary">작성하기</button>
             </div>
         </div>
     </form>

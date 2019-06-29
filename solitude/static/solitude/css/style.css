@@ -98,16 +98,16 @@ body {
 
 /* main.html in templates */
 .grid-container {
-  display: grid;
-  grid-template-columns: 1.5fr 0.5fr; 
-  grid-template-rows: 1fr;
-  grid-template-areas: "left dropdown";
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "left dropdown";
+  }
+.grid-container .left { 
+    grid-area: left; 
+    overflow: hidden;
 }
-.left { 
-  grid-area: left; 
-  overflow: hidden;
-}
-.grid-container > .right {
+.grid-container .right {
   grid-area: dropdown;
   background-color: black;
 }
@@ -120,26 +120,26 @@ body {
   text-align: center;
 }
 .dropdown > .btn {
-  font-family: 'locus_sangsang';
-  font-size: 26px;
-  background-color: #EFDBB2;
-  border-width: 0;
-  width: 300px;
-  height: 70px;
-  color: black;
-  text-align: center;
-  margin: 0 auto;
-  margin-top: 20px; 
-  display: block;
+    font-family: 'locus_sangsang';
+    font-size: 26px;
+    background-color: #EFDBB2;
+    border-width: 0;
+    width: 300px;
+    height: 70px;
+    color: black;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px; 
+    display: block;
 }
 .dropdown > .dropdown-menu {
-  font-family: 'NanumSquareRound';
-  border-width: 0;
-  width: 300px;
+    font-family: 'NanumSquareRound';
+    border-width: 0;
+    width: 300px;
 }
 .main_likelion { 
-  width: 1300px;
-  border: 0px !important;
+    width: 1300px;
+    border: 0px !important;
 }
 
 .main-upper{

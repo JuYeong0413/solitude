@@ -2,53 +2,70 @@
 {% load staticfiles %}
 
 {% block content %}
-<div class="container">
-    <h1 class="content-name-htj">글 작성하기</h1>
-    <form class="form-horizontal" action="{% url 'classes:update' post.pk %}" method="POST">
-            {% csrf_token %} <br>
-        </br>
-        <div class="form-group">
-            <label class="col-sm-1 control-label">카테고리</label>
-            <div class="col-xs-2">
-                    <select class="form-control" name="category">
-                            {% ifequal post.category '시험정보공유' %}
-                                <option value ="시험정보공유" selected="selected">시험정보공유</option>
-                                <option value = "과제공지">과제공지</option>
-                                  <option value = "질문">질문</option>
-                                  <option value = "잡담">잡담</option>
-                            {% endifequal %}
-                            {% ifequal post.category '과제공지' %}
-                            <option value ="시험정보공유">시험정보공유</option>
-                            <option value = "과제공지" selected="selected">과제공지</option>
-                              <option value = "질문">질문</option>
-                              <option value = "잡담">잡담</option>
-                            {% endifequal %}
-                            {% ifequal post.category '질문' %}
-                            <option value ="시험정보공유">시험정보공유</option>
-                            <option value = "과제공지">과제공지</option>
-                              <option value = "질문" selected="selected">질문</option>
-                              <option value = "잡담">잡담</option>
-                            {% endifequal %}
-                            {% ifequal post.category '잡담' %}
-                            <option value ="시험정보공유">시험정보공유</option>
-                            <option value = "과제공지">과제공지</option>
-                              <option value = "질문">질문</option>
-                              <option value = "잡담" selected="selected">잡담</option>
-                            {% endifequal %}
-                    </select>
-                </label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="input1" class="col-sm-1 control-label">글제목</label>
-            <div class="col-xs-3">
-                <input type="name" class="form-control" id="input1" placeholder="title" name="title" value="{{ post.title }}" required>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="input2" class="col-sm-1 control-label">내용</label>
-            <div class="col-xs-5">
-                <textarea class="form-control" rows="6" name="content" placeholder="content" required>{{ post.content|linebreaks }}</textarea>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<div class="container"><br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+   <h1 style="font-family: 'locus_sangsang';">{{ post.title }}</h1>
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th style="font-family: 'locus_sangsang';">작 성 자 : </th>
+                <td style="font-family: 'NanumSquareRound';">{{ post.user }}</td>
+                 <th style="font-family: 'locus_sangsang';">말 머 리 : </th>
+                <td style="font-family: 'NanumSquareRound';">{{ post.category }}</td>
+            </tr>
+            
+            <tr>
+                <div class="col-12">
+                <td colspan="12" style="text-align:left">{{ post.content|linebreaks }}</td>    
+                </div>
+            </tr>   
+        </tbody>
+</table>
+
+{% if user in post.likes.all %}
+    <a href="{% url 'classes:like_toggle' post.id %}" class="btn btn-primary" style="font-family: 'locus_sangsang';">좋아요 취소 [{{ post.likes.count }}]</a>
+{% else %}
+    <a href="{% url 'classes:like_toggle' post.id %}" class="btn btn-primary" style="font-family: 'locus_sangsang';">좋아요 [{{ post.likes.count }}]</a>
+{% endif %}
+<div>
+    {% if user == post.user %}>
+    <div>
+        <a class="btn btn-secondary" href="{% url 'classes:edit' post.pk %}" style="font-family: 'locus_sangsang';">수정</a>
+        <a class="btn btn-secondary" href="{% url 'classes:delete' post.pk %}" style="font-family: 'locus_sangsang';">삭제</a>
+    </div> 
+    {% endif %}
+</div>
+
+<p style="font-family: 'locus_sangsang';">댓글 수 : {{ post.comments.count }}개</p>
+{% for comment in post.comments.all %}
+    <p style="font-family: 'NanumSquareRound';"><strong>{{ comment.user }}</strong> : {{ comment.message }}</p>
+    <form action="{% url 'classes:delete_comment' comment.id %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="댓글삭제">
+    </form>
+{% endfor %}
+
+<form action="{% url 'classes:create_comment' post.id %}" method="POST">
+        {% csrf_token %}
+        <label>댓글 내용</label><br>
+        <textarea name="message" required style ="font-family:'NanumSquareRound';"></textarea><br>
+        
+        <input type="submit" value="댓글쓰기">
+</form>
+
+<form action="#" method="POST">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-secondary" value="목록으로 돌아가기">
+<a class="btn btn-secondary" href="{% url 'classes:main' post.pk %}" style="font-family: 'locus_sangsang';">목록으로 돌아가기</a>
+                <textarea class="form-contrclasses:="6" name="content" placeholder="content" required>{{ post.content|linebreaks }}</textarea>
             </div>
         </div>
         

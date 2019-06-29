@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<body class="vsc-initialized">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="text-center">
+        <div class="body_title">게시글 삭제 완료</div>
+        
+        <br>
+        <br>
+        
+        <a href="{% url 'main' %}" class="logout_btn text-center"><button class="primaryAction">메인으로 돌아가기</button></a>
+    </div>
+    
+</body>
+{% endblock %}

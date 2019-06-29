@@ -29,7 +29,11 @@
     {% if user == post.user %}
     <div>
         <a class="btn btn-secondary" href="{% url 'classes:edit' post.pk %}">수정</a>
-        <a class="btn btn-secondary" href="{% url 'classes:delete' post.pk %}">삭제</a>
+        <form action="{% url 'classes:delete' post.pk %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" value="{{ class_id }}" name="class_id">
+            <input type="submit" class="btn btn-primary" value="삭제">
+        </form>
     </div> 
     {% endif %}
 </div>
@@ -49,6 +53,11 @@
         <textarea name="message" required></textarea><br>
         
         <input type="submit" value="댓글쓰기">
+</form>
+
+<form action="#" method="POST">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-secondary" value="목록으로 돌아가기">
 </form>
 </div>
 
