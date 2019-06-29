@@ -17,6 +17,7 @@ class Post(TimeStampedModel):
     category = CharField(max_length=200)
     title = CharField(max_length=200)
     content = TextField()
+    view_count = models.IntegerField(default=0) # 조회수
     likes = ManyToManyField(User, related_name="liked_users")
     is_top = BooleanField(default=False)
 

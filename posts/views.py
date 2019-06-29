@@ -88,5 +88,5 @@ def like_toggle(request, id):
 
 # 게시글 목록보기
 def show(request):
-    post = Post.objects.all()
-    return render(request, 'posts/show.html', {'post': post})
+    posts = Post.objects.all()
+    return render(request, 'posts/show.html', {'posts': posts})

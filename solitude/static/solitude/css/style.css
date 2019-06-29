@@ -93,22 +93,20 @@ body {
 
 /* main.html */
 
-body {
-    padding: 0;
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "img-left img-left img-left college" "img-left img-left img-left college" "img-left img-left img-left college";
+  }
+  
+  .img-left { 
+      grid-area: img-left;
+      overflow: hidden;
 }
-.container{
-    width: 100%;
-    display: flex;
-    background-color: blue;
-    margin-left: 0px;
-    margin-right: 0px;
-}
+  
+  .college { grid-area: college; }
 
-.card-img-left{
-    width: 65%;
-}
-
-.college{
-    width: 35%;
-    background-color: black;
-}
+  .card{
+      width: 900px;
+  }
