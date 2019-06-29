@@ -11,7 +11,7 @@ def main(request, id):
     if user.is_anonymous:
         return render(request, 'account/login.html')
     else:
-        posts = Post.objects.filter(classname_id=id)
+        posts = Post.objects.filter(classname_id=id).order_by('-id')
         class_name = Class.objects.get(pk=id)
         class_id = id
 

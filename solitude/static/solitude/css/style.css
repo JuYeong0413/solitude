@@ -109,7 +109,7 @@ body {
 }
 .grid-container > .right {
   grid-area: dropdown;
-  background-color: #F9423A;
+  background-color: black;
 }
 .intro_dropdown {
   font-family: 'NanumSquareRound';
