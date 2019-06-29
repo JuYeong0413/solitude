@@ -12,13 +12,14 @@ def new(request):
 def create(request):
     if request.method == 'POST':
         user = request.user
+        category = request.POST.get('category')
+        title = request.POST.get('title')
         content = request.POST.get('content')
-        image = request.FILES.get('file')
 
-        post = Post(user=user, content=content, image=image)
+        post = Post(user=user, category=category, title=title, content=content)
         post.save()
         
-        return redirect('home')
+        return redirect('show')
 
 
 # 게시글 수정 페이지 띄우기
@@ -31,10 +32,11 @@ def edit(request, id):
 def update(request, id):
     if request.method == 'POST':
         post = Post.objects.get(pk=id)
-        if request.FILES.get('file'):
-            image = request.FILES['file']
-            post.image = image
+        category = request.POST.get('category')
+        title = request.POST.get('title')
         content = request.POST.get('content')
+        post.category = category
+        post.title = title
         post.content = content
         post.save()
 
@@ -45,7 +47,7 @@ def update(request, id):
 def delete(request, id):
     post = Post.objects.get(pk=id)
     post.delete()
-    return redirect('home')
+    return redirect('show')
 
 
 # 댓글 작성
@@ -84,7 +86,7 @@ def like_toggle(request, id):
     return redirect('home')
 
 
-# 게시글 상세보기
-def show(request, id):
-    post = get_object_or_404(Post, pk=id)
+# 게시글 목록보기
+def show(request):
+    post = Post.objects.all()
     return render(request, 'posts/show.html', {'post': post})

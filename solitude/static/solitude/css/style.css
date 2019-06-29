@@ -35,14 +35,24 @@ body {
     width: 410px;
     height: 40px;
     border-radius: 5px;
+    border-width: 0px;
 }
 #id_password {
     width: 400px;
     height: 40px;
     border-radius: 5px;
+    border-width: 0px;
 }
+
+/*로그인, 로그아웃 버튼*/
 .primaryAction {
-    
+    font-family: 'locus_sangsang';
+    background-color: #F9423A;
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border-width: 0px;
+    box-shadow: none;
 }
 
 
@@ -55,7 +65,7 @@ body {
     font-family: 'NanumSquareRound';
 }
 
-.navbar navbar-expand-lg navbar-light bg-light{
-    background-color: black;
+.navbar-expand-lg{
+    background-color: #FF9E1B;
 }
 
