@@ -5,6 +5,6 @@ from posts.models import *
 # Create your views here.
 # 수업을 누르면 게시판 띄워주기
 def main(request, id):
-    classes = Class.objects.filter(major_id=major_id)
+    posts = Post.objects.filter(classname_id=id)
 
-    return render(request, 'classes/main.html', {'classes': classes})
+    return render(request, 'classes/main.html', {'posts': posts})

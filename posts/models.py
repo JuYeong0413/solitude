@@ -12,7 +12,7 @@ class TimeStampedModel(Model):
 
 
 class Post(TimeStampedModel):
-    class_name = ForeignKey(Class, on_delete=CASCADE)
+    classname = ForeignKey(Class, on_delete=CASCADE)
     user = ForeignKey(User, on_delete=CASCADE)
     category = CharField(max_length=200)
     title = CharField(max_length=200)
