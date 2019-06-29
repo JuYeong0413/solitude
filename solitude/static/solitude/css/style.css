@@ -1,3 +1,54 @@
+/*제목*/    @font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
+/*중간글씨*/@font-face { font-family: 'locus_sangsang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/locus_sangsang.woff') format('woff'); font-weight: normal; font-style: normal; }
+/*일반글씨*/@font-face { font-family: 'NanumSquareRound'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+/*
+    색깔팔레트
+검정: #000000 rgb(0,0,0)
+다홍: #F9423A rgb(249,66,58)
+개나리: #FF9E1B rgb(255,158,27)
+베이지: #EFDBB2 rbg(239, 219, 178)
+*/
+
 body {
     background-color: rgb(239, 219, 178);  
 }
+
+.body_title {
+    font-family: 'locus_sangsang';
+    font-size: 48px;
+    text-align: center;
+}
+
+.body_content {
+    font-family: 'NanumSquareRound';
+    font-size: 16px;
+    text-align: center;
+}
+
+.login {
+    font-family: 'NanumSquareRound';
+    text-align: center;
+}
+
+#id_login {
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+#id_password {
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+
+.navbar-brand{
+    font-family: 'yg-jalnan';
+}
+
+.nav-item{
+    font-family: 'yg-jalnan';
+}
+

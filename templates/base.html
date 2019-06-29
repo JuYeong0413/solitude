@@ -2,15 +2,25 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type='text/css' href="{% static 'solitude/css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-    <div>
-        <ul>
-            <li><a href="/accounts/login/">Sign In</a></li>
-            <li><a href="/accounts/signup/">Sign Up</a></li>
-        </ul>
-    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">고독한독강러</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">홈<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/accounts/login/">로그인</a>
+                <a class="nav-item nav-link" href="/accounts/signup/">회원가입</a>
+            </div>
+        </div>
+    </nav>
+
 
     {% block contents %}
     {% endblock %}
