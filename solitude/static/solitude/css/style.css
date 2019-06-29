@@ -92,10 +92,16 @@ body {
 
 
 /* main.html */
+
+body {
+    padding: 0;
+}
 .container{
     width: 100%;
     display: flex;
     background-color: blue;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .card-img-left{
