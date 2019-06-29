@@ -1,128 +1,61 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block content %}
 <div class="container">
-   <h1>{{ post.title }}</h1>
-    <table class="table table-striped table-htj table-htj">
-        <tbody>
-            <tr>
-                <th>작 성 자 : </th>
-                <td>{{ post.user }}</td>
-                 <th>말 머 리 : </th>
-                <td>{{ post.category }}</td>
-            </tr>
-            
-            <tr>
-                <div class="col-12">
-                <th>글  내  용 : </th>
-post.contentpost.content{}% if user == post.user %{}% else ndif %}post.content{}% if user == post.user %{}% else ndif %}post.content{}% if user == post.user %{}% else ndif %}post.content{}% if user == post.user %{}% else ndif %}post.content{}% if user == post.user %{}% else ndif %}post.content{}% if user == post.user %{}% else ndif %}post.content{}% if user == post.user %{}% else ndif %}post.content{}% if user == post.user %{}% else ndif %}%}}%n  ffiiddn   eleessle %%{}{}%%  puerressu..ottssop  ====   srreesuu %ffii  %{}{}conttneenttnocp..ottsopr>
-                <th>작 성 자 : </th>
-                <td>{{ meeting.writer }}</td>
-                 <th>모임구분 : </th>
-                <td>{{meeting.category}}</td>
-            </tr>
-            
-            <tr>
-               <th>최소인원 : </th>
-                <td>{{ meeting.min_number }}</td>  
-               <th>최대인원 : </th>
-                <td>{{ meeting.max_number }}</td> 
-            </tr>
-            
-            <tr>
-               <th>진행시간 : </th>
-                <td>{{ meeting.meeting_time }}</td>
-               <th>진행장소 : </th>
-                <td>{{ meeting.meeting_place }}</td>    
-            </tr>
-            
-            <tr>
-               <th>신청인원 : </th>
-                <td>{{ meeting.current_number }}</td>
-               <th>이메일 : </th>
-                <td>{{ meeting.writer_email }}</td>
-            </tr>
-            
-            <tr>
-                <div class="col-12">
-                <th>모임설명 : </th>
-                <td colspan="12" style="text-align:left">{{ meeting.description|linebreaks }}</td>    
-                </div>
-            </tr>   
-        </tbody>
-</table>
-<div class="both-sides-htj">
-    <div>
-        <a class="readbutton-gtj" href="{% url 'meetings:verification' %}?action=show_participants&id={{ meeting.pk }}">신청자 명단 확인</a>
-        <a class="readbutton-gtj" href="{% url 'meetings:join_page' meeting.id %}">모임 참여 신청하기</a>
-    </div>
-    <div>
-        <a class="readbutton-gtj" href="{% url 'meetings:verification' %}?action=edit&id={{ meeting.pk }}">수정</a>
-        <a class="readbutton-gtj" href="{% url 'meetings:verification' %}?action=delete&id={{ meeting.pk }}">삭제</a>
-    </div> 
-</div>
-</div>
-
-
-{% endblock %}{% extends 'base.html' %}
-
-{% block content %}
-<div class="container">
-   <h1 class="content-name-htj">{{ meeting.title }}</h1>
-    <table class="table table-striped table-htj">
-        <tbody>
-            <tr>
-                <th>작 성 자 : </th>
-                <td>{{ meeting.writer }}</td>
-                 <th>모임구분 : </th>
-                <td>{{meeting.category}}</td>
-            </tr>
-            
-            <tr>
-               <th>최소인원 : </th>
-                <td>{{ meeting.min_number }}</td>  
-               <th>최대인원 : </th>
-                <td>{{ meeting.max_number }}</td> 
-            </tr>
-            
-            <tr>
-               <th>진행시간 : </th>
-                <td>{{ meeting.meeting_time }}</td>
-               <th>진행장소 : </th>
-                <td>{{ meeting.meeting_place }}</td>    
-            </tr>
-            
-            <tr>
-               <th>신청인원 : </th>
-                <td>{{ meeting.current_number }}</td>
-               <th>이메일 : </th>
-                <td>{{ meeting.writer_email }}</td>
-            </tr>
-            
-            <tr>
-                <div class="col-12">
-                <th>모임설명 : </th>
-                <td colspan="12" style="text-align:left">{{ meeting.description|linebreaks }}</td>    
-                </div>
-            </tr>   
-        </tbody>
-</table>
-<div class="both-sides-htj">
-    <div>
-        <a class="readbutton-gtj" href="{% url 'meetings:verification' %}?action=show_participants&id={{ meeting.pk }}">신청자 명단 확인</a>
-        <a class="readbutton-gtj" href="{% url 'meetings:join_page' meeting.id %}">모임 참여 신청하기</a>
-    </div>
-    <div>
-        <a class="readbutton-gtj" href="{% url 'meetings:verification' %}?action=edit&id={{ meeting.pk }}">수정</a>
-        <a class="readbutton-gtj" href="{% url 'meetings:verification' %}?action=delete&id={{ meeting.pk }}">삭제</a>
-    </div> 
-</div>
-</div>
-
-
-{% endblock %}lass="form-group">
-            <div class="col-sm-offset-1 col-sm-1">
-                <button type="submit" class="btn btn-outline-secondary btntj">Submit</button>
+    <h1 class="content-name-htj">글 작성하기</h1>
+    <form class="form-horizontal" action="{% url 'classes:update' post.pk %}" method="POST">
+            {% csrf_token %} <br>
+        </br>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">카테고리</label>
+            <div class="col-xs-2">
+                    <select class="form-control" name="category">
+                            {% ifequal post.category '시험정보공유' %}
+                                <option value ="시험정보공유" selected="selected">시험정보공유</option>
+                                <option value = "과제공지">과제공지</option>
+                                  <option value = "질문">질문</option>
+                                  <option value = "잡담">잡담</option>
+                            {% endifequal %}
+                            {% ifequal post.category '과제공지' %}
+                            <option value ="시험정보공유">시험정보공유</option>
+                            <option value = "과제공지" selected="selected">과제공지</option>
+                              <option value = "질문">질문</option>
+                              <option value = "잡담">잡담</option>
+                            {% endifequal %}
+                            {% ifequal post.category '질문' %}
+                            <option value ="시험정보공유">시험정보공유</option>
+                            <option value = "과제공지">과제공지</option>
+                              <option value = "질문" selected="selected">질문</option>
+                              <option value = "잡담">잡담</option>
+                            {% endifequal %}
+                            {% ifequal post.category '잡담' %}
+                            <option value ="시험정보공유">시험정보공유</option>
+                            <option value = "과제공지">과제공지</option>
+                              <option value = "질문">질문</option>
+                              <option value = "잡담" selected="selected">잡담</option>
+                            {% endifequal %}
+                    </select>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input1" class="col-sm-1 control-label">글제목</label>
+            <div class="col-xs-3">
+                <input type="name" class="form-control" id="input1" placeholder="title" name="title" value="{{ post.title }}" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input2" class="col-sm-1 control-label">내용</label>
+            <div class="col-xs-5">
+                <textarea class="form-control" rows="6" name="content" placeholder="content" required>{{ post.content|linebreaks }}</textarea>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div>
+                <input type="hidden" value="{{ class_id }}" name="class_id">
+                <button type="submit" class="btn btn-outline-secondary">수정하기</button>
             </div>
         </div>
     </form>

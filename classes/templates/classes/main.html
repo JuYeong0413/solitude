@@ -6,11 +6,18 @@
     <br>
     <div class="row">
         <!--테이블 위 버튼셋-->
-        <form action="#">
-            <div class="input-group col-12">     
+        <div class="input-group col">
+            <form action="{% url 'classes:new' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" value="{{ class_id }}" name="class_id">
+                <input type="submit" class="btn-outline-secondary btn" value="새 글 작성하기" style="font-family: 'locus_sangsang';">
+            </form>
+        </div>
+        <form action="{% url 'classes:search' %}">
+            <div class="input-group col-12"> 
                 <input type="text" class="form-control" placeholder="검색어" name="search" style="font-family: 'NanumSquareRound';">
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-outline-secondary" style="font-family: 'NanumSquareRound';">
+                    <button type="submit" class="btn btn-outline-secondary" style="font-family: 'locus_sangsang';">
                         검색
                     </button>
                 </div>
@@ -20,7 +27,7 @@
 
     <br>
     
-    <div class="alert alert-dark">교재 제본 or 스터디 모집하실 분은 다음 폼을 작성해주시길 바랍니다. <a href="https://forms.gle/Yy6Y2GbMtALKD98z7">https://forms.gle/Yy6Y2GbMtALKD98z7</a><br>
+    <div class="alert alert-dark" style="font-family: 'NanumSquareRound';">교재 제본 or 스터디 모집하실 분은 다음 폼을 작성해주시길 바랍니다. <a href="https://forms.gle/Yy6Y2GbMtALKD98z7">https://forms.gle/Yy6Y2GbMtALKD98z7</a><br>
     운영진이 폼을 확인 후 신청자 모집 게시글을 공지사항에 업로드하겠습니다.</span>
     </div>
 
@@ -44,7 +51,7 @@
         <tr>
             <td>{{ post.id }}</td>
             <td>{{ post.category }}</td>
-            <td><a href="#">{{ post.title }}</a></td>
+            <td><a href="{% url 'classes:show' post.pk %}">{{ post.title }}</a></td>
             <td>{{ post.writer }}</td>
             <td>{{ post.created_at }}</td>
             <td>{{ post.view_count }}</td>
@@ -54,5 +61,8 @@
     </table>
 </div>
 <button type="button" onclick="topFunction()" class="scrollBtn" id="myBtn">Top</button>
+
+<br>
+<br>
 
 {% endblock %}

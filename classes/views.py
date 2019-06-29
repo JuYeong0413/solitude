@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from posts.models import *
+import pdb
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 # 수업을 누르면 게시판 띄워주기
@@ -11,8 +13,9 @@ def main(request, id):
     else:
         posts = Post.objects.filter(classname_id=id)
         class_name = Class.objects.get(pk=id)
+        class_id = id
 
-        return render(request, 'classes/main.html', {'posts': posts, 'class_name': class_name})
+        return render(request, 'classes/main.html', {'posts': posts, 'class_name': class_name, 'class_id': class_id})
 
 # 수업 게시판 개설 요청 페이지
 def new_class(request):
@@ -33,7 +36,10 @@ def create_class(request):
 
 
 def new(request):
-    return render(request, 'classes/new.html')
+    if request.method == "POST":
+        class_id = request.POST.get('class_id')
+        #pdb.set_trace()
+    return render(request, 'classes/new.html', {'class_id': class_id})
 
 
 # 게시글 작성
@@ -43,11 +49,14 @@ def create(request):
         category = request.POST.get('category')
         title = request.POST.get('title')
         content = request.POST.get('content')
+        class_id = request.POST.get('class_id')
 
-        post = Post(user=user, category=category, title=title, content=content)
+        classname = Class.objects.get(pk=class_id)
+
+        post = Post(classname=classname, user=user, category=category, title=title, content=content)
         post.save()
         
-        return redirect('show')
+        return redirect('classes:main', id=class_id)
 
 
 # 게시글 수정 페이지 띄우기
@@ -68,14 +77,14 @@ def update(request, id):
         post.content = content
         post.save()
 
-        return redirect('home')
+        return redirect('classes:show', id=id)
 
 
 # 게시글 삭제
 def delete(request, id):
     post = Post.objects.get(pk=id)
     post.delete()
-    return redirect('show')
+    return redirect('classes:main')
 
 
 # 댓글 작성
@@ -88,7 +97,7 @@ def create_comment(request, id):
         comment = Comment(user=user, post=post, message=message)
         comment.save()
 
-        return redirect('home')
+        return redirect('classes:show', id=id)
 
 
 # 댓글 삭제
@@ -96,7 +105,7 @@ def delete_comment(request, id):
     comment = Comment.objects.get(pk=id)
     comment.delete()
 
-    return redirect('home')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 # 좋아요
@@ -111,25 +120,14 @@ def like_toggle(request, id):
     else:
         post.likes.add(user)
 
-    return redirect('home')
-
-
-# 게시글 목록보기
-def list(request):
-    user = request.user
-    if user.is_anonymous:
-        return render(request, 'account/login.html')
-    else:
-        posts = Post.objects.all()
-        return render(request, 'classes/list.html', {'posts': posts})
+    return redirect('classes:show', id=id)
 
 
 # 게시글 검색
 def search(request):
-    if request.method == "POST":
-        search = request.POST.get('search')
-        posts = Post.objects.filter(title__contains=search)
-    return render(request, 'classes/search.html', {'posts': posts})
+    search = request.GET.get('search')
+    posts = Post.objects.filter(title__contains=search)
+    return render(request, 'classes/search.html', {'posts': posts, 'search': search})
 
 
 def show(request, id):

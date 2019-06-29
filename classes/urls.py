@@ -16,5 +16,4 @@ urlpatterns = [
     path('show/<int:id>/', views.show, name="show"),
     path('search/', views.search, name="search"),
     path('new/', views.new, name="new"),
-    path('list/', views.list, name="list"),
 ]

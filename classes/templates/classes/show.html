@@ -14,12 +14,17 @@
             
             <tr>
                 <div class="col-12">
-                <th>글  내  용 : </th>
                 <td colspan="12" style="text-align:left">{{ post.content|linebreaks }}</td>    
                 </div>
             </tr>   
         </tbody>
 </table>
+
+{% if user in post.likes.all %}
+    <a href="{% url 'classes:like_toggle' post.id %}" class="btn btn-primary">좋아요 취소 [{{ post.likes.count }}]</a>
+{% else %}
+    <a href="{% url 'classes:like_toggle' post.id %}" class="btn btn-primary">좋아요 [{{ post.likes.count }}]</a>
+{% endif %}
 <div>
     {% if user == post.user %}
     <div>
@@ -28,6 +33,23 @@
     </div> 
     {% endif %}
 </div>
+
+<p>댓글 수 : {{ post.comments.count }}개</p>
+{% for comment in post.comments.all %}
+    <p>{{ comment.user }} : {{ comment.message }}</p>
+    <form action="{% url 'classes:delete_comment' comment.id %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="댓글삭제">
+    </form>
+{% endfor %}
+
+<form action="{% url 'classes:create_comment' post.id %}" method="POST">
+        {% csrf_token %}
+        <label>댓글 내용</label><br>
+        <textarea name="message" required></textarea><br>
+        
+        <input type="submit" value="댓글쓰기">
+</form>
 </div>
 
 

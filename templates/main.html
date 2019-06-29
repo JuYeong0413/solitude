@@ -1,23 +1,41 @@
-{% extends 'base.html' %}
+
 {% load staticfiles %}
 
 <!DOCTYPE html>
 
 <head>
-    <title>메인</title>
+    <title>메인 홈페이지</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type='text/css' href="{% static 'solitude/css/style.css' %}">
+    <link rel="stylesheet" type='text/css' href="{% static 'solitude/css/scrollbtn.css' %}">
+    <link rel="stylesheet" type='text/javascript' href="{% static 'solitude/js/project.js' %}">
 </head>
 
 {% block content %}
-<div class='main-upper' style="font-family: 'yg-jalnan';">고독한 독강러</div>
+<div class='grid-container-main-upper' style="background-color: #FF9E1B;">
+    <div class="left"></div>
+    <div class="center"><h1 style="padding-top:10px; display:flex; justify-content:center; font-family: 'yg-jalnan';">고독한독강러</h2></div>
+    <div class="right" style="display: flex; justify-content: flex-end; background-color: #FF9E1B; align-items: center;">
+    {% if user.is_authenticated %}
+        <a href="/accounts/logout/" style="margin-right:50px; font-family:'NanumSquareRound';">로그아웃</a>
+    {% else %}
+        <a href="/accounts/login/" style="margin-right:50px; font-family:'NanumSquareRound';">로그인</a>
+        <a href="/accounts/signup/" style="margin-right:50px; font-family:'NanumSquareRound';">회원가입</a>
+    {% endif %}
+    </div>
+</div>
+
+
 <body class="body_main">
     <div class="grid-container">
         <div class="left">
-            <img src="https://t1.daumcdn.net/cfile/tistory/99ECF74B5B35CC111A" class="main_likelion" alt="likelion_hackerton">
+            <img src="https://t1.daumcdn.net/cfile/tistory/99ECF74B5B35CC111A" class="main_likelion" alt="likelion_hackarton">
         </div>
-        <div class="dropdown" id="dropdown_zero">
-            독강하는 과목의 전공을 아래 단대 메뉴에서 선택하세요.
+
+        <div class="right">
+        <div class="intro_dropdown">
+            독강하는 과목의 전공을 <br> 아래 단대 목록 중에서 선택하세요!
         </div>
         <div class="dropdown" id="dropdown_one">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,6 +44,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="{% url 'majors:main' 5 %}">경영학과</a>
                 <a class="dropdown-item" href="{% url 'majors:main' 1 %}">경제학과</a>
+            </div>
         </div>
         <div class="dropdown" id="dropdown_two">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -40,7 +59,7 @@
         </div>
         <div class="dropdown" id="dropdown_three">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                공 대
+                공  대
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="{% url 'majors:main' 3 %}">컴퓨터공학과</a>
@@ -95,9 +114,9 @@
                 <a class="dropdown-item" href="#">도예과</a>
             </div>
         </div>
-                    
-        
+     </div>
     </div>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

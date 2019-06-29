@@ -24,6 +24,9 @@ class Post(TimeStampedModel):
     def comments(self):
         return Comment.objects.filter(post=self)
 
+    def __str__(self):
+        return self.title
+
 
 class Comment(TimeStampedModel):
     user = ForeignKey(User, on_delete=CASCADE)
