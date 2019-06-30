@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<br><br>
 <div class="container">
-   <h1>{{ post.title }}</h1>
+   <h1 style="font-family: 'locus_sangsang';">{{ post.title }}</h1>
     <table class="table table-striped">
         <tbody>
             <tr>
-                <th>작 성 자 : </th>
-                <td>{{ post.user }}</td>
-                 <th>말 머 리 : </th>
-                <td>{{ post.category }}</td>
+                <th style="font-family: 'locus_sangsang';">작 성 자 : </th>
+                <td style="font-family: 'NanumSquareRound';">{{ post.user }}</td>
+                 <th style="font-family: 'locus_sangsang';">말 머 리 : </th>
+                <td style="font-family: 'NanumSquareRound';">{{ post.category }}</td>
             </tr>
             
             <tr>
@@ -20,42 +21,48 @@
         </tbody>
 </table>
 
-{% if user in post.likes.all %}
-    <a href="{% url 'classes:like_toggle' post.id %}" class="btn btn-primary">좋아요 취소 [{{ post.likes.count }}]</a>
-{% else %}
-    <a href="{% url 'classes:like_toggle' post.id %}" class="btn btn-primary">좋아요 [{{ post.likes.count }}]</a>
-{% endif %}
 <div>
+{% if user in post.likes.all %}
+    <a href="{% url 'classes:like_toggle' post.id %}" class="btn btn-primary" style="font-family: 'locus_sangsang'; font-size: 20px;">좋아요 취소 [{{ post.likes.count }}]</a>
+{% else %}
+    <a href="{% url 'classes:like_toggle' post.id %}" class="btn btn-primary" style="font-family: 'locus_sangsang'; font-size: 20px;">좋아요 [{{ post.likes.count }}]</a>
+{% endif %}
+</div>
+
+<div class="container">
     {% if user == post.user %}
-    <div>
-        <a class="btn btn-secondary" href="{% url 'classes:edit' post.pk %}">수정</a>
+    <div class="row" style="margin-top: 10px; margin-bottom: 20px;">
+        <span style="margin-right: 10px;">
+            <a class="btn btn-secondary" href="{% url 'classes:edit' post.pk %}" style="font-family: 'locus_sangsang'; font-size: 16px;">글 수정</a>
+        </span>
         <form action="{% url 'classes:delete' post.pk %}" method="POST">
             {% csrf_token %}
             <input type="hidden" value="{{ class_id }}" name="class_id">
-            <input type="submit" class="btn btn-primary" value="삭제">
+            <input type="submit" class="btn btn-primary" value="글 삭제" style="font-family: 'locus_sangsang'; font-size: 16px;">
         </form>
     </div> 
     {% endif %}
 </div>
 
-<p>댓글 수 : {{ post.comments.count }}개</p>
+<p style="font-family: 'NanumSquareRound';">댓글 수 : {{ post.comments.count }}개</p>
 {% for comment in post.comments.all %}
-    <p>{{ comment.user }} : {{ comment.message }}</p>
+    <p style="font-family: 'NanumSquareRound';"><strong>{{ comment.user }}</strong> : {{ comment.message }}</p>
     <form action="{% url 'classes:delete_comment' comment.id %}" method="POST">
         {% csrf_token %}
-        <input type="submit" value="댓글삭제">
+        <input type="submit" value="댓글삭제" style="font-family: 'NanumSquareRound'; background-color: #FF9E1B; border-width: 0; border-radius: 5px;">
     </form>
 {% endfor %}
 
 <form action="{% url 'classes:create_comment' post.id %}" method="POST">
         {% csrf_token %}
-        <label>댓글 내용</label><br>
-        <textarea name="message" required></textarea><br>
-        
-        <input type="submit" value="댓글쓰기">
+        <label style="font-family: 'NanumSquareRound';">댓글 내용</label><br>
+        <input type="hidden" value="{{ class_id }}" name="class_id">
+        <textarea style="width:600px; height:80px; align-content: center;" name="message" required></textarea>      
+        <input type="submit" value="댓글쓰기" style="font-family: 'NanumSquareRound'; background-color: #FF9E1B; border-width: 0; border-radius: 5px;">
 </form>
 
 </div>
+
 
 
 {% endblock %}
