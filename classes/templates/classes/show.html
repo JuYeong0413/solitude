@@ -47,10 +47,13 @@
 <p style="font-family: 'NanumSquareRound';">댓글 수 : {{ post.comments.count }}개</p>
 {% for comment in post.comments.all %}
     <p style="font-family: 'NanumSquareRound';"><strong>{{ comment.user }}</strong> : {{ comment.message }}</p>
+
+    {% if user == comment.user %}
     <form action="{% url 'classes:delete_comment' comment.id %}" method="POST">
         {% csrf_token %}
         <input type="submit" value="댓글삭제" style="font-family: 'NanumSquareRound'; background-color: #FF9E1B; border-width: 0; border-radius: 5px;">
     </form>
+    {% endif %}
 {% endfor %}
 
 <form action="{% url 'classes:create_comment' post.id %}" method="POST">
