@@ -1,0 +1,1 @@
+web: gunicorn solitude.wsgi --log-file -
